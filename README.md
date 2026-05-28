@@ -16,6 +16,28 @@ The repository contains solutions to four distinct compiler/source-to-source tra
 
 ---
 
+## Running the Project
+
+### Install Dependencies
+
+```bash
+pip install antlr4-python3-runtime
+```
+
+### Execute
+
+```bash
+python main.py
+```
+
+Generated output will be saved in:
+
+```text
+output.java
+```
+
+---
+
 # Java Getter & Setter Generator
 
 A source-to-source transformation tool built using Python and ANTLR4 that automatically generates getter and setter methods for private Java class fields.
@@ -49,28 +71,6 @@ For each field:
 
 * A getter method is generated
 * A setter method is generated unless the field is declared as `final`
-
----
-
-## Running the Project
-
-### Install ANTLR Runtime
-
-```bash
-pip install antlr4-python3-runtime
-```
-
-### Run
-
-```bash
-python main.py
-```
-
-The transformed source code will be written to:
-
-```text
-output.java
-```
 
 ---
 
@@ -128,28 +128,6 @@ This makes unfinished methods explicit during runtime.
 
 ---
 
-## Running the Project
-
-### Install Dependencies
-
-```bash
-pip install antlr4-python3-runtime
-```
-
-### Execute
-
-```bash
-python main.py
-```
-
-Generated output will be saved in:
-
-```text
-output.java
-```
-
----
-
 ## Educational Purpose
 
 This project demonstrates:
@@ -201,28 +179,6 @@ This provides a fallback handler for uncaught exceptions.
 * Python 3
 * ANTLR4
 * Java Grammar Parser
-
----
-
-## Running the Project
-
-### Install Dependencies
-
-```bash
-pip install antlr4-python3-runtime
-```
-
-### Run
-
-```bash
-python main.py
-```
-
-The transformed Java source code will be written to:
-
-```text
-output.java
-```
 
 ---
 
