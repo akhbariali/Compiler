@@ -80,20 +80,6 @@ public String getName()
 
 ---
 
-## Project Structure
-
-```text
-.
-├── input.java
-├── output.java
-├── main.py
-├── JavaLexer.g4
-├── JavaParser.g4
-└── gen/
-```
-
----
-
 ## How It Works
 
 The parser traverses Java class declarations and identifies private field declarations.
@@ -182,20 +168,6 @@ public void process() {
 * Python 3
 * ANTLR4
 * Java Parser Grammar
-
----
-
-## Project Structure
-
-```text
-.
-├── input.java
-├── output.java
-├── main.py
-├── JavaLexer.g4
-├── JavaParser.g4
-└── gen/
-```
 
 ---
 
@@ -299,20 +271,6 @@ catch(Exception e) {
 * Python 3
 * ANTLR4
 * Java Grammar Parser
-
----
-
-## Project Structure
-
-```text
-.
-├── input.java
-├── output.java
-├── main.py
-├── JavaLexer.g4
-├── JavaParser.g4
-└── gen/
-```
 
 ---
 
