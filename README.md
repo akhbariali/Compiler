@@ -24,3 +24,342 @@ To run these scripts, you must install Python 3.x and the ANTLR4 Python runtime 
 1. **Install ANTLR4 Runtime for Python:**
 ```bash
    pip install antlr4-python3-runtime
+
+# Java Getter & Setter Generator
+
+A source-to-source transformation tool built using Python and ANTLR4 that automatically generates getter and setter methods for private Java class fields.
+
+## Features
+
+* Parses Java source files using ANTLR4
+* Detects private class fields
+* Automatically generates:
+
+  * Getter methods
+  * Setter methods
+* Skips setter generation for `final` fields
+* Outputs transformed Java source code
+
+---
+
+## Example
+
+### Input
+
+```java
+private int age;
+private final String name;
+```
+
+### Generated Output
+
+```java
+public void setAge(int value)
+{
+    age = value;
+}
+
+public int getAge()
+{
+    return age;
+}
+
+public String getName()
+{
+    return name;
+}
+```
+
+---
+
+## Technologies Used
+
+* Python 3
+* ANTLR4
+* Java Grammar (Lexer & Parser)
+
+---
+
+## Project Structure
+
+```text
+.
+├── input.java
+├── output.java
+├── main.py
+├── JavaLexer.g4
+├── JavaParser.g4
+└── gen/
+```
+
+---
+
+## How It Works
+
+The parser traverses Java class declarations and identifies private field declarations.
+
+For each field:
+
+* A getter method is generated
+* A setter method is generated unless the field is declared as `final`
+
+---
+
+## Running the Project
+
+### Install ANTLR Runtime
+
+```bash
+pip install antlr4-python3-runtime
+```
+
+### Run
+
+```bash
+python main.py
+```
+
+The transformed source code will be written to:
+
+```text
+output.java
+```
+
+---
+
+## Educational Purpose
+
+This project demonstrates:
+
+* Parsing techniques
+* Abstract syntax tree traversal
+* Source-to-source transformation
+* Compiler construction fundamentals
+* Code generation automation
+
+
+# Java Empty Method Guard
+
+A Java source transformation tool that detects empty method bodies and automatically inserts `UnsupportedOperationException` placeholders using Python and ANTLR4.
+
+## Features
+
+* Parses Java source code
+* Detects empty methods:
+
+  ```java
+  {}
+  ```
+* Replaces empty implementations with:
+
+  ```java
+  throw new UnsupportedOperationException();
+  ```
+* Helps prevent silent unfinished implementations
+
+---
+
+## Example
+
+### Input
+
+```java
+public void process() {}
+```
+
+### Output
+
+```java
+public void process() {
+    throw new UnsupportedOperationException();
+}
+```
+
+---
+
+## Technologies Used
+
+* Python 3
+* ANTLR4
+* Java Parser Grammar
+
+---
+
+## Project Structure
+
+```text
+.
+├── input.java
+├── output.java
+├── main.py
+├── JavaLexer.g4
+├── JavaParser.g4
+└── gen/
+```
+
+---
+
+## How It Works
+
+The parser traverses Java method declarations and checks whether the method body is empty.
+
+If an empty body is detected, the tool injects:
+
+```java
+throw new UnsupportedOperationException();
+```
+
+This makes unfinished methods explicit during runtime.
+
+---
+
+## Running the Project
+
+### Install Dependencies
+
+```bash
+pip install antlr4-python3-runtime
+```
+
+### Execute
+
+```bash
+python main.py
+```
+
+Generated output will be saved in:
+
+```text
+output.java
+```
+
+---
+
+## Educational Purpose
+
+This project demonstrates:
+
+* Parse tree traversal
+* Java code transformation
+* Token stream rewriting
+* Static code analysis concepts
+* Compiler construction basics
+
+
+# Java Exception Catch Injector
+
+A source-to-source Java transformation tool that automatically injects generic exception handlers into `try-catch` blocks using Python and ANTLR4.
+
+## Features
+
+* Parses Java source code
+* Detects `try-catch` statements
+* Verifies whether a generic:
+
+  ```java
+  catch(Exception e)
+  ```
+
+  handler exists
+* Automatically appends a fallback exception handler if missing
+
+---
+
+## Example
+
+### Input
+
+```java
+try {
+    runTask();
+}
+catch(IOException e) {
+    e.printStackTrace();
+}
+```
+
+### Output
+
+```java
+try {
+    runTask();
+}
+catch(IOException e) {
+    e.printStackTrace();
+}
+catch(Exception e) {
+    System.out.println("Exception message: " + e.getMessage());
+}
+```
+
+---
+
+## Technologies Used
+
+* Python 3
+* ANTLR4
+* Java Grammar Parser
+
+---
+
+## Project Structure
+
+```text
+.
+├── input.java
+├── output.java
+├── main.py
+├── JavaLexer.g4
+├── JavaParser.g4
+└── gen/
+```
+
+---
+
+## How It Works
+
+The parser analyzes all `try-catch` blocks and inspects existing catch clauses.
+
+If no generic exception handler is found, the tool injects:
+
+```java
+catch(Exception e) {
+    System.out.println("Exception message: " + e.getMessage());
+}
+```
+
+This provides a fallback handler for uncaught exceptions.
+
+---
+
+## Running the Project
+
+### Install Dependencies
+
+```bash
+pip install antlr4-python3-runtime
+```
+
+### Run
+
+```bash
+python main.py
+```
+
+The transformed Java source code will be written to:
+
+```text
+output.java
+```
+
+---
+
+## Educational Purpose
+
+This project demonstrates:
+
+* Compiler design concepts
+* Java parsing
+* Source code rewriting
+* Exception handling augmentation
+* Parse tree manipulation using ANTLR4
