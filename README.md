@@ -17,61 +17,6 @@ The repository contains solutions to four distinct compiler/source-to-source tra
 
 ---
 
-## Prerequisites & Installation
-
-To run these scripts, you must install Python 3.x and the ANTLR4 Python runtime engine.
-
-1. **Install ANTLR4 Runtime for Python:**
-```bash
-   pip install antlr4-python3-runtime
-
-# Java Getter & Setter Generator
-
-A source-to-source transformation tool built using Python and ANTLR4 that automatically generates getter and setter methods for private Java class fields.
-
-## Features
-
-* Parses Java source files using ANTLR4
-* Detects private class fields
-* Automatically generates:
-
-  * Getter methods
-  * Setter methods
-* Skips setter generation for `final` fields
-* Outputs transformed Java source code
-
----
-
-## Example
-
-### Input
-
-```java
-private int age;
-private final String name;
-```
-
-### Generated Output
-
-```java
-public void setAge(int value)
-{
-    age = value;
-}
-
-public int getAge()
-{
-    return age;
-}
-
-public String getName()
-{
-    return name;
-}
-```
-
----
-
 ## Technologies Used
 
 * Python 3
@@ -142,24 +87,6 @@ A Java source transformation tool that detects empty method bodies and automatic
   throw new UnsupportedOperationException();
   ```
 * Helps prevent silent unfinished implementations
-
----
-
-## Example
-
-### Input
-
-```java
-public void process() {}
-```
-
-### Output
-
-```java
-public void process() {
-    throw new UnsupportedOperationException();
-}
-```
 
 ---
 
@@ -234,35 +161,6 @@ A source-to-source Java transformation tool that automatically injects generic e
 
   handler exists
 * Automatically appends a fallback exception handler if missing
-
----
-
-## Example
-
-### Input
-
-```java
-try {
-    runTask();
-}
-catch(IOException e) {
-    e.printStackTrace();
-}
-```
-
-### Output
-
-```java
-try {
-    runTask();
-}
-catch(IOException e) {
-    e.printStackTrace();
-}
-catch(Exception e) {
-    System.out.println("Exception message: " + e.getMessage());
-}
-```
 
 ---
 
