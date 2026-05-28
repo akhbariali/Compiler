@@ -16,6 +16,21 @@ The repository contains solutions to four distinct compiler/source-to-source tra
 
 ---
 
+Java Getter & Setter Generator
+
+A source-to-source transformation tool built using Python and ANTLR4 that automatically generates getter and setter methods for private Java class fields.
+
+Features
+Parses Java source files using ANTLR4
+Detects private class fields
+Automatically generates:
+Getter methods
+Setter methods
+Skips setter generation for final fields
+Outputs transformed Java source code
+
+---
+
 ## Technologies Used
 
 * Python 3
