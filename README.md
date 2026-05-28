@@ -10,9 +10,9 @@ The repository contains solutions to four distinct compiler/source-to-source tra
 
 | Module | Description | Key Mechanism |
 | :--- | :--- | :--- |
-| **Task 1: Encapsulation Helper** | Detects private fields and automatically generates standard public `getter` and `setter` methods. For `final` (constant) fields, it intelligently generates only the `getter`. | ANTLR AST Listener / Rewrite |
-| **Task 2: Interface Stubber** | Scans for empty method bodies (unimplemented methods) and automatically injects a `throw new UnsupportedOperationException();` instruction. | Token Stream Editing |
-| **Task 3: Try-Catch Guard** | Analyzes `try-catch` structures. If a global/general `Exception` block is missing down the block chain, it safely appends a default catch block to log the error message. | Conditional Node Injection |
+| **Task 1: getter-setter-generator** | Detects private fields and automatically generates standard public `getter` and `setter` methods. For `final` (constant) fields, it intelligently generates only the `getter`. | ANTLR AST Listener / Rewrite |
+| **Task 2: empty-method-detector** | Scans for empty method bodies (unimplemented methods) and automatically injects a `throw new UnsupportedOperationException();` instruction. | Token Stream Editing |
+| **Task 3: exception-catch-injector** | Analyzes `try-catch` structures. If a global/general `Exception` block is missing down the block chain, it safely appends a default catch block to log the error message. | Conditional Node Injection |
 
 ---
 
